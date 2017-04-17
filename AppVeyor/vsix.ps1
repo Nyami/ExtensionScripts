@@ -232,7 +232,7 @@ function Vsix-TokenReplacement {
         $content = [string]::join([environment]::newline, (get-content $FilePath))
         $regex = New-Object System.Text.RegularExpressions.Regex $searchString
         
-        $regex.Replace($content, $replacement) | Out-File $FilePath
+        $regex.Replace($content, $replacement) | Out-File -Encoding UTF8 $FilePath
 
 		"OK" | Write-Host -ForegroundColor Green
     }
